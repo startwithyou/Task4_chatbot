@@ -1,0 +1,27 @@
+# Import the necessary modules
+import random
+
+# Define a dictionary of possible responses
+responses = {
+    'hi': ['Hello!', 'Hi there!', 'Hey!', 'Hi!', 'Nice to meet you!'],
+    'how are you': ['I am doing well, thank you for asking.', 'I am great, how are you?', 'I am good, thanks!', 'I am doing fantastic, thanks for asking!'],
+    'what is your name': ['My name is MEOW!', 'I am MEOW!', 'You can call me MEOW!', 'My name is MEOW, MEOW!'],
+    'bye': ['Goodbye!', 'See you later!', 'Take care!', 'Bye!', 'Goodbye, have a great day!'],
+    'when will we meet': ['soon!!','after few days'], 
+    'default': ["I'm sorry, I don't understand what you're saying."]
+}
+
+# Define a function to generate a response
+def get_response(message):
+    # Check if the message matches a key in the dictionary
+    for key in responses.keys():
+        if key in message.lower():
+            return random.choice(responses[key])
+    # If no match is found, return the default response
+    return random.choice(responses['default'])
+
+# Define a loop to get input from the user and generate responses
+while True:
+    message = input('You: ')
+    response = get_response(message)
+    print('Meow:', response)
